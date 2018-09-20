@@ -4,9 +4,9 @@ email: aleksandar.jelenak@gmail.com
 description: Simple language with clean syntax for describing the content of multidimensional array (ndarray, datacube) data files.
 
 baseurl: ""
-url: https://ajelenak.github.io/ndarray-data-language
-git_address: https://github.com/ajelenak/ndarray-data-language
-git_edit_address: https://github.com/ajelenak/ndarray-data-language/blob/doc
+url: https://ajelenak.github.io/ndl
+git_address: https://github.com/ajelenak/ndl
+git_edit_address: https://github.com/ajelenak/ndl/tree/master/docs
 
 # theme options from https://bootswatch.com/
 # comment out this to use default Bootstrap
