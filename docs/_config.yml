@@ -3,7 +3,7 @@ title: Ndarray Data Language
 email: aleksandar.jelenak@gmail.com
 description: Simple language with clean syntax for describing the content of multidimensional array (ndarray, datacube) data files.
 
-baseurl: ""
+baseurl: "/ndl"
 url: https://ajelenak.github.io/ndl
 git_address: https://github.com/ajelenak/ndl
 git_edit_address: https://github.com/ajelenak/ndl/tree/master/docs
