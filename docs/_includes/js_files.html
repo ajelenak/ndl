@@ -1,0 +1,15 @@
+<script>
+  var baseurl = '{{ site.baseurl }}'
+</script>
+<!-- <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> -->
+<script src="{{ "/js/jquery-3.3.1.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }} "></script>
+<script src="{{ "/js/typeahead.bundle.min.js" | prepend: site.baseurl }} "></script>
+<script src="{{ "/js/main.js" | prepend: site.baseurl }} "></script>
+<script src="{{ "/js/anchor.min.js" | prepend: site.baseurl }}"></script>
+<script>
+	$(function() {
+		anchors.options.visible = 'touch';
+		anchors.add('.post-content > h1, h2, h3, h4, h5, h6');
+	});
+</script>

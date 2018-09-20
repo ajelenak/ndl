@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="header-container jumbotron">
+    <div class="container">
+        <h1>Ndarray Data Language</h1>
+        <p>Simple language with easy syntax for describing the content of multidimensional array (ndarray) data files.</p>
+        <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | prepend: site.baseurl }}" role="button">Learn more</a></p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="header-light regular-pad">
+                What is Ndarray Data Language?
+            </h2>
+            <blockquote>
+                <p>Files with multidimensional array data (also referred as <em><a href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">ndarray</a></em> or <em><a href="https://en.wikipedia.org/wiki/Data_cube">datacube</a></em>) are commonplace in science and engineering. They are typically in various binary formats because that is the most efficient storage method for array data. One important aspect of the workflow is describing  file content in some textual form that is easy for users to understand, create, or share. This requires special software tools and many of these file formats have at least one. Their output text formats are not standardized and vary in the file content detail but usually are directly related to the underlying storage format.
+                </p>
+
+                <p>The Ndarray Data Language aims to provide a common text format for describing the content of multidimensional array data files. The language's main features are:
+                </p>
+                <ul>
+                    <li>Modelled as a simple abstraction of the <a href="https://portal.hdfgroup.org/display/HDF5/HDF5">HDF5</a> and <a href="https://www.unidata.ucar.edu/software/netcdf/">netCDF</a> data models and file formats.</li>
+                    <li>Simple and clean syntax based on <a href="http://yaml.org/spec/1.2/spec.html">YAML</a>. Parseable by all major programming languages, yet easy for users to understand and create in their favorite text editor.</li>
+                    <li>Easily extendable to accomodate additional information for a particular file format.</li>
+                </ul>
+            </blockquote>
+        </div>
+        <!-- <div class="col-md-4 text-center">
+            <img src="img/matrix.jpg" alt="" class="img-responsive">
+        </div> -->
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <h1 class="text-center"><i class="fa fa-file-text" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Ndarray Data Language Specification</h3>
+            <p class="text-center">Work in progress. Incomplete.</p>
+            <p class="text-center">Version <a href="{{ "/docs/ndl/" | prepend: site.baseurl }}">0.0.1</a>.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Tools</h3>
+            <p class="text-center">What good is a data language without software to make it useable? Agree! But still too early for this. Hopefully coming soon!</p>
+        </div>
+        <div class="col-sm-4">
+            <h1 class="text-center"><i class="fa fa-question-circle" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Frequently Asked Questions</h3>
+            <p class="text-center">Too early for this, too.</p>
+        </div>
+    </div>
+
+</div>

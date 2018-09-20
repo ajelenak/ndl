@@ -1,0 +1,39 @@
+@startuml
+hide circle
+
+class "File" as F
+
+class "Group" as G {
+    name
+}
+
+class "Attribute" as A {
+    name
+    shape
+    type
+    value
+}
+
+class "DimCoord" as DC {
+    name
+    size
+    type
+    value
+}
+
+class "Ndarray" as Nd {
+    name
+    shape
+    type
+    value
+}
+
+F -- G
+DC *-- "0..*" A
+G *-- G
+G *-- "0..*" A
+G *-- "0..*" DC
+Nd *-- "0..*" A
+G *-- "0..*" Nd
+Nd <--  "0..*" DC
+@enduml

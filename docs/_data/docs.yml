@@ -1,0 +1,9 @@
+- title: Documentation
+  docs:
+    - home
+    - syntax
+
+- title: Examples
+  docs:
+    - examples/basic
+    - examples/netcdf
