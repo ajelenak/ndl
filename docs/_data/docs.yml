@@ -2,8 +2,8 @@
   docs:
     - home
     - syntax
+    - tutorial
 
 - title: Examples
   docs:
-    - examples/basic
-    - examples/netcdf
+    - examples/cf

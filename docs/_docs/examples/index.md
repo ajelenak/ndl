@@ -1,6 +1,6 @@
 ---
-title: Basic File Example
-permalink: /docs/examples/basic/
+title: Examples
+permalink: /docs/examples/home
 ---
 
-Coming soon!
+Is this good now?
