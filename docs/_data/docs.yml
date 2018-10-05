@@ -7,3 +7,4 @@
 - title: Examples
   docs:
     - examples/cf
+    - examples/hdf-eos5
