@@ -1,8 +1,29 @@
 ---
 title: Ndarray Data Language
 permalink: /docs/syntax/
-toc: true
 ---
+<!-- MDTOC maxdepth:6 firsth1:0 numbering:0 flatten:0 bullets:0 updateOnSave:0 -->
+
+[Status of this Document](#status-of-this-Document)   
+[Scope](#scope)   
+[Syntax](#syntax)   
+&emsp;[File](#file)   
+&emsp;[Datatype](#datatype)   
+&emsp;&emsp;[String](#string)   
+&emsp;&emsp;[Integer](#integer)   
+&emsp;&emsp;[Floating-point](#floating-point)   
+&emsp;&emsp;[Opaque](#opaque)   
+&emsp;&emsp;[Enum](#enum)   
+&emsp;&emsp;[Compound](#compound)   
+&emsp;&emsp;[Vlen](#vlen)   
+&emsp;&emsp;[Array](#array)   
+&emsp;[Shape](#shape)   
+&emsp;[Attribute](#attribute)   
+&emsp;[DimCoord](#dimcoord)   
+&emsp;[Ndarray](#ndarray)   
+&emsp;[Group](#group)   
+
+<!-- /MDTOC -->
 
 ## Status of this Document
 
