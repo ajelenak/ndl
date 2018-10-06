@@ -1,6 +1,7 @@
 ---
 title: Ndarray Data Language
 permalink: /docs/syntax/
+toc: true
 ---
 
 ## Status of this Document
