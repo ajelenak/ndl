@@ -2,34 +2,36 @@
 title: Ndarray Data Language
 permalink: /docs/syntax/
 ---
-<!-- MDTOC maxdepth:6 firsth1:0 numbering:0 flatten:0 bullets:0 updateOnSave:0 -->
+<!-- MDTOC maxdepth:6 firsth1:0 numbering:1 flatten:0 bullets:0 updateOnSave:0 -->
 
-[Status of this Document](#status-of-this-Document)   
-[Scope](#scope)   
-[Syntax](#syntax)   
-&emsp;[File](#file)   
-&emsp;[Datatype](#datatype)   
-&emsp;&emsp;[String](#string)   
-&emsp;&emsp;[Integer](#integer)   
-&emsp;&emsp;[Floating-point](#floating-point)   
-&emsp;&emsp;[Opaque](#opaque)   
-&emsp;&emsp;[Enum](#enum)   
-&emsp;&emsp;[Compound](#compound)   
-&emsp;&emsp;[Vlen](#vlen)   
-&emsp;&emsp;[Array](#array)   
-&emsp;[Shape](#shape)   
-&emsp;[Attribute](#attribute)   
-&emsp;[DimCoord](#dimcoord)   
-&emsp;[Ndarray](#ndarray)   
-&emsp;[Group](#group)   
+1. [Status of this Document](#status-of-this-document)   
+2. [Scope](#scope)   
+3. [Syntax](#syntax)   
+&emsp;3.1. [File](#file)   
+&emsp;3.2. [Datatype](#datatype)   
+&emsp;&emsp;3.2.1. [String](#string)   
+&emsp;&emsp;3.2.2. [Integer](#integer)   
+&emsp;&emsp;3.2.3. [Floating-point](#floating-point)   
+&emsp;&emsp;3.2.4. [Opaque](#opaque)   
+&emsp;&emsp;3.2.5. [Enum](#enum)   
+&emsp;&emsp;3.2.6. [Compound](#compound)   
+&emsp;&emsp;3.2.7. [Vlen](#vlen)   
+&emsp;&emsp;3.2.8. [Array](#array)   
+&emsp;&emsp;3.2.9. [Object Reference](#object-reference)   
+&emsp;&emsp;3.2.10. [Region Reference](#region-reference)   
+&emsp;3.3. [Shape](#shape)   
+&emsp;3.4. [Attribute](#attribute)   
+&emsp;3.5. [DimCoord](#dimcoord)   
+&emsp;3.6. [Ndarray](#ndarray)   
+&emsp;3.7. [Group](#group)   
 
 <!-- /MDTOC -->
 
 ## Status of this Document
 
-The current content represents a work in progress and is not complete. For those who prefer semantic version identifiers, let's say it is at version 0.0.1.
+The current content is a work in progress. For those who prefer semantic version identifiers, let's say it is at version __0.5__.
 
-Each new version of the document supersedes all the previous ones.
+Each new version of the document supersedes the previous one.
 
 ## Scope
 
@@ -159,6 +161,34 @@ type:
 ```
 
 In the example above, the Array datatype is a two-dimensional 3-by-3 array of `float32` values.
+
+#### Object Reference
+
+This datatype is similar to pointers in some programming languages. Values point to other objects in the same file. Its declaration is:
+
+```yaml
+type: objref
+```
+
+#### Region Reference
+
+A value of the region reference datatype points to a selection of elements of one ndarray in the same file. There are two ways how ndarray elements can be selected: `block` and `element`.
+
+`block` selections are contiguous subsets of ndarray's elements of the same rank as the ndarray. Each block is described with two ndarray elements at the diagonally opposite corners of that block. The block corner elements are described with tuples with their dimension indices.
+
+`element` selections are collections of individual ndarray elements. Each ndarray element is specified using a tuple with its dimension indices.
+
+The two syntax forms for this datatype are shown below:
+
+```yaml
+type:
+  regref:
+    selection: block
+
+type:
+  regref:
+    selection: element
+```
 
 ### Shape
 
