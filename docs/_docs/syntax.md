@@ -7,23 +7,23 @@ permalink: /docs/syntax/
 1. [Status of this Document](#status-of-this-document)   
 2. [Scope](#scope)   
 3. [Syntax](#syntax)   
-&emsp;3.1. [File](#file)   
-&emsp;3.2. [Datatype](#datatype)   
-&emsp;&emsp;3.2.1. [String](#string)   
-&emsp;&emsp;3.2.2. [Integer](#integer)   
-&emsp;&emsp;3.2.3. [Floating-point](#floating-point)   
-&emsp;&emsp;3.2.4. [Opaque](#opaque)   
-&emsp;&emsp;3.2.5. [Enum](#enum)   
-&emsp;&emsp;3.2.6. [Compound](#compound)   
-&emsp;&emsp;3.2.7. [Vlen](#vlen)   
-&emsp;&emsp;3.2.8. [Array](#array)   
-&emsp;&emsp;3.2.9. [Object Reference](#object-reference)   
-&emsp;&emsp;3.2.10. [Region Reference](#region-reference)   
-&emsp;3.3. [Shape](#shape)   
-&emsp;3.4. [Attribute](#attribute)   
-&emsp;3.5. [DimCoord](#dimcoord)   
-&emsp;3.6. [Ndarray](#ndarray)   
-&emsp;3.7. [Group](#group)   
+4. [File](#file)   
+5. [Datatype](#datatype)   
+&emsp;5.1. [String](#string)   
+&emsp;5.2. [Integer](#integer)   
+&emsp;5.3. [Floating-point](#floating-point)   
+&emsp;5.4. [Opaque](#opaque)   
+&emsp;5.5. [Enum](#enum)   
+&emsp;5.6. [Compound](#compound)   
+&emsp;5.7. [Vlen](#vlen)   
+&emsp;5.8. [Array](#array)   
+&emsp;5.9. [Object Reference](#object-reference)   
+&emsp;5.10. [Region Reference](#region-reference)   
+6. [Shape](#shape)   
+7. [Attribute](#attribute)   
+8. [DimCoord](#dimcoord)   
+9. [Ndarray](#ndarray)   
+10. [Group](#group)   
 
 <!-- /MDTOC -->
 
@@ -43,15 +43,15 @@ Ndarray Data Language is based on the data serialization language [YAML](http://
 
 Ndarray Data Language describes file content using the following entities: File, Group, Ndarray, DimCoord, Attribute, Datatype and Shape. Their explanation and YAML syntax are detailed below.
 
-### File
+## File
 
 The File entity represents content information of one ndarray data file and is encoded as one YAML document. If saving this document to a file, its name should be the same as the data file with the new file extension: `yaml` (preferred) or `yml`. For example, if the data file's name is `example.fmt`, the YAML document's file should be `example.yaml` or `example.yml`.
 
-### Datatype
+## Datatype
 
 The Datatype entity declares type of data that is stored in every element of an ndarray and this information is the value of the `type` key. The currently supported data type categories and their Ndarray Data Language syntax are given below.
 
-#### String
+### String
 
 The String datatype is indicated with:
 
@@ -61,7 +61,7 @@ type: string
 
 Since YAML is a Unicode-based data language, the `string` datatype keyword always represents a sequence of Unicode characters (code points) regardless of the actual storage in an ndarray file.
 
-#### Integer
+### Integer
 
 The accepted integer datatype keywords and the value sets they represent are listed in the table below:
 
@@ -76,7 +76,7 @@ The accepted integer datatype keywords and the value sets they represent are lis
 | `int64` | 64-bit integer | -9223372036854775808 to 9223372036854775807 |
 | `uint64` | unsigned 64-bit integer | 0 to 18446744073709551615 |
 
-#### Floating-point
+### Floating-point
 
 The supported floating-point datatype keywords are:
 
@@ -85,7 +85,7 @@ The supported floating-point datatype keywords are:
 | `float32` | IEEE 754 single-precision (32 bit) floating-point |
 | `float64` | IEEE 754 double-precision (64 bit) floating-point |
 
-#### Opaque
+### Opaque
 
 The Opaque datatype represents a fixed-length sequence of bytes without specific interpretation. This datatype allows storing what is known as binary large object (BLOB). A text-valued tag provides a description. Below is an example of this datatype description for a sequence of 100 bytes.
 
@@ -96,7 +96,7 @@ type:
     tag: text description
 ```
 
-#### Enum
+### Enum
 
 The Enum datatype describes a set of named integer constants. Names of the constants can be any Unicode string. The integer datatype information is optional although it is recommended to include it. If missing, an integer datatype with the smallest value set still capable of representing all the constant values will be assumed.
 
@@ -125,7 +125,7 @@ type:
 
 When processing this datatype description, the `uint8` will be assumed since its value set is enough to store all three constant values.
 
-#### Compound
+### Compound
 
 This datatype represents a sequence of named members of other datatypes. For example:
 
@@ -139,7 +139,7 @@ type:
 
 describes a compound datatype with three members, named: `x`, `y`, and `z`, and their datatypes.
 
-#### Vlen
+### Vlen
 
 The Vlen datatype represents a variable-length sequence of elements of another datatype. Because the number of the elements is not fixed, the datatype's syntax involves only the datatype of the elements in the `base` key:
 
@@ -149,7 +149,7 @@ type:
     base: uint8
 ```
 
-#### Array
+### Array
 
 The Array datatype represents an ndarray's element value as another array of fixed rank and extent where all elements are of some other datatype. This datatype is described with two keys: `base` and `shape`:
 
@@ -162,7 +162,7 @@ type:
 
 In the example above, the Array datatype is a two-dimensional 3-by-3 array of `float32` values.
 
-#### Object Reference
+### Object Reference
 
 This datatype is similar to pointers in some programming languages. Values point to other objects in the same file. Its declaration is:
 
@@ -170,7 +170,7 @@ This datatype is similar to pointers in some programming languages. Values point
 type: objref
 ```
 
-#### Region Reference
+### Region Reference
 
 A value of the region reference datatype points to a selection of elements of one ndarray in the same file. There are two ways how ndarray elements can be selected: `block` and `element`.
 
@@ -190,7 +190,7 @@ type:
     selection: element
 ```
 
-### Shape
+## Shape
 
 The Shape entity defines the rank (number of dimensions) and extent (the size of each dimension) of an ndarray. This information is represented as a key-value pair:
 
@@ -221,7 +221,7 @@ A scalar (zero-dimension) ndarray is defined with:
 shape: []
 ```
 
-### Attribute
+## Attribute
 
 Some ndarray file formats support assigning properties to other objects in the same file. These properties usually provide contextual information, known as [_metadata_](https://en.wikipedia.org/wiki/Metadata), for the rest of the file's data. They are represented with the Attribute entity which consists of name (Unicode string), shape, datatype, and value.
 
@@ -252,7 +252,7 @@ attributes:
 
 The above example includes five attributes named `a`, `b`, `same_as_a`, `same_as_b`, and `state`. The `a` and `b` attributes depict the complete syntax. Typically several attributes are assigned to the same file object so there's also a simpler syntax, as shown by the `same_as_a` and `same_as_b` attributes. Avoiding the `shape` and `type` keys keeps attribute description succinct. In such cases the attribute's value will be treated as a scalar, with the datatype that is the best match.
 
-### DimCoord
+## DimCoord
 
 The DimCoord entity describes _dimension coordinates_, one-dimensional ndarrays whose elements map to the indices of another ndarray's dimension. A dimension coordinate is defined by: a name (Unicode string), a size (a positive integer or `null`), a datatype, and, optionally, its values.
 
@@ -279,7 +279,7 @@ The above example illustrates how the DimCoord entity is applied. The required k
 
 Dimension coordinates can have zero or more attributes. Such attributes are available from the `attributes` key.
 
-### Ndarray
+## Ndarray
 
 The Ndarray entity applies to any ndarray in a file that holds data. Its syntax consists of name (Unicode string), shape (rank and extent information), datatype, and, value (optional). Ndarrays can have zero or more attributes. Such attributes are available from the `attributes` key. The example below illustrates this:
 
@@ -312,7 +312,7 @@ The `ndarrays` key's value is a nested map with ndarray descriptions. Here there
 
 Dimension coordinates can be used when describing dimension sizes (extent) of ndarrays. In that case, the size of the ndarray's dimension will be equal to the size of the dimension coordinate and, also, the values of the dimension coordinate are to be interpreted as the coordinate along that ndarray's dimension. Each index of that ndarray's dimension will be mapped to one dimension coordinate value.
 
-### Group
+## Group
 
 The Group entity allows hierarchical organization of other file content. Since not all ndarray file formats have this capability, the presence of the Group entity in an Ndarray Data Language description is optional. One Group can contain zero or more Groups and there is no limit on the grouping depth.
 
