@@ -3,7 +3,7 @@ title: HDF-EOS5 Example
 permalink: /docs/examples/hdf-eos5/
 ---
 
-[HDF-EOS5](https://earthdata.nasa.gov/user-resources/standards-and-references/hdf-eos5) is the standard for storing NASA Earth Observing System data. The example below is for the file [`GSSTF_NCEP.3.2008.12.31.he5`](https://measures.gesdisc.eosdis.nasa.gov/data/GSSTF/GSSTF_NCEP.3/2008/GSSTF_NCEP.3.2008.12.31.he5) from the [Goddard Satellite-based Surface Turbulent Fluxes Version 3](https://disc.gsfc.nasa.gov/datasets/GSSTF_NCEP_V3/summary?keywords=Atmospheric%20Composition) dataset.
+[HDF-EOS5](https://earthdata.nasa.gov/user-resources/standards-and-references/hdf-eos5) is the standard for storing NASA Earth Observing System data. The example below is for the file `GSSTF_NCEP.3.2008.12.31.he5` ([download](https://measures.gesdisc.eosdis.nasa.gov/data/GSSTF/GSSTF_NCEP.3/2008/GSSTF_NCEP.3.2008.12.31.he5)) from the [Goddard Satellite-based Surface Turbulent Fluxes Version 3](https://disc.gsfc.nasa.gov/datasets/GSSTF_NCEP_V3/summary?keywords=Atmospheric%20Composition) dataset.
 
 HDF-EOS5 files can have many groups but in Ndarray Data Language only the groups with content need to be included. Another characteristic of HDF-EOS5 files are text-valued HDF5 datasets with metadata. The `/HDFEOS INFORMATION/StructMetadata.0` ndarray shows how the value of such HDF5 datasets is easy to represent using YAML's [block scalar](http://yaml.org/spec/1.2/spec.html#id2793652) literal style.
 
