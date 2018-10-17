@@ -485,13 +485,13 @@ The JPSS file format relies on several advanced HDF5 features so the example bel
                   [VIIRS-SDR-TELE-COEFFS-LUT_npp_20120229000000Z_20120301000000Z_ee00000000000000Z_PS-1-O-CCR-12-346-JPSS-DPA-002-PE_noaa_all_all-_all],
                   [VIIRS-SOLAR-DIFF-VOLT-LUT_npp_20020101010000Z_20020101010000Z_ee00000000000000Z_PS-1-D-NPP-1-PE-_devl_dev_all-_all]]
         N_Beginning_Orbit_Number:
-          type: unit64
+          type: uint64
           storage:
             endian: big
           shape: [1,1]
           value: [[10607]]
         N_Beginning_Time_IET:
-          type: unit64
+          type: uint64
           storage:
             endian: big
           shape: [1,1]
@@ -509,7 +509,7 @@ The JPSS file format relies on several advanced HDF5 features so the example bel
           shape: [1,1]
           value: [[Night]]
         N_Ending_Time_IET:
-          type: unit64
+          type: uint64
           storage:
             endian: big
           shape: [1,1]
