@@ -8,3 +8,4 @@
   docs:
     - examples/cf
     - examples/hdf-eos5
+    - examples/jpss
