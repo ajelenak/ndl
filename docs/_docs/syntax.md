@@ -14,22 +14,23 @@ permalink: /docs/syntax/
 &emsp;5.3. [Floating-point](#floating-point)   
 &emsp;5.4. [Opaque](#opaque)   
 &emsp;5.5. [Enum](#enum)   
-&emsp;5.6. [Compound](#compound)   
-&emsp;5.7. [Vlen](#vlen)   
-&emsp;5.8. [Array](#array)   
-&emsp;5.9. [Object Reference](#object-reference)   
-&emsp;5.10. [Region Reference](#region-reference)   
+&emsp;5.6. [Object Reference](#object-reference)   
+&emsp;5.7. [Region Reference](#region-reference)   
+&emsp;5.8. [Compound](#compound)   
+&emsp;5.9. [Vlen](#vlen)   
+&emsp;5.10. [Array](#array)   
 6. [Shape](#shape)   
 7. [Attribute](#attribute)   
 8. [DimCoord](#dimcoord)   
 9. [Ndarray](#ndarray)   
 10. [Group](#group)   
+11. [Storage Directives](#storage-directives)   
 
 <!-- /MDTOC -->
 
 ## Status of this Document
 
-The current content is a work in progress. For those who prefer semantic version identifiers, let's say it is at version __0.5__.
+The current content is a work in progress. For those who prefer semantic version identifiers, let's say it is at version __0.6__.
 
 Each new version of the document supersedes the previous one.
 
@@ -125,6 +126,34 @@ type:
 
 When processing this datatype description, the `uint8` will be assumed since its value set is enough to store all three constant values.
 
+### Object Reference
+
+This datatype is similar to pointers in some programming languages. Values point to other objects in the same file. Its declaration is:
+
+```yaml
+type: objref
+```
+
+### Region Reference
+
+A value of the region reference datatype points to a selection of elements of one ndarray in the same file. There are two ways how ndarray elements can be selected: `block` and `element`.
+
+`block` selections are contiguous subsets of ndarray's elements of the same rank as the ndarray. Each block is described with two ndarray elements at the diagonally opposite corners of that block. The block corner elements are described with tuples with their dimension indices.
+
+`element` selections are collections of individual ndarray elements. Each ndarray element is specified using a tuple with its dimension indices.
+
+The two syntax forms for this datatype are shown below:
+
+```yaml
+type:
+  regref:
+    selection: block
+
+type:
+  regref:
+    selection: element
+```
+
 ### Compound
 
 This datatype represents a sequence of named members of other datatypes. For example:
@@ -163,34 +192,6 @@ type:
 ```
 
 In this example the Array datatype is a two-dimensional 3-by-3 array of `float32` values.
-
-### Object Reference
-
-This datatype is similar to pointers in some programming languages. Values point to other objects in the same file. Its declaration is:
-
-```yaml
-type: objref
-```
-
-### Region Reference
-
-A value of the region reference datatype points to a selection of elements of one ndarray in the same file. There are two ways how ndarray elements can be selected: `block` and `element`.
-
-`block` selections are contiguous subsets of ndarray's elements of the same rank as the ndarray. Each block is described with two ndarray elements at the diagonally opposite corners of that block. The block corner elements are described with tuples with their dimension indices.
-
-`element` selections are collections of individual ndarray elements. Each ndarray element is specified using a tuple with its dimension indices.
-
-The two syntax forms for this datatype are shown below:
-
-```yaml
-type:
-  regref:
-    selection: block
-
-type:
-  regref:
-    selection: element
-```
 
 ## Shape
 
@@ -362,3 +363,23 @@ Each group is identified with a _path name_. The group with the path name `/` is
 Each group can have zero or more attributes, dimension coordinates, or ndarrays. Similar to group path names, every dimension coordinate and ndarray in a group has a path name which is constructed using the group's path name and the dimcoord/ndarray name delimited by the `/` character. In the above example, the dimension coordinate path names are: `/d1` and `/group1/d2`; the ndarray path names are `/n` and `/group2/subgroup1/nd`.
 
 The `/group2/subgroup1/nd` ndarray's shape is described using dimension coordinates: `/group1/d2` and `/d1`. This means that the ndarray is two-dimensional with the extent [`null`, 150]. Also, this association signals that the indices of the ndarray's first dimension are mapped to the `/group1/d2`'s values, and the indices of the ndarray's second dimension are mapped to the `/d1` values.
+
+## Storage Directives
+
+These directives provide specific storage details of dimension coordinate, ndarray, or attribute values. They are optional because support vary among different file formats. There are no default values for any directive when not given. All directives are located in a nested map of the `storage` key.
+
+Currently supported directives are explained below.
+
+**`shape`**: Only allowed for ndarrays. A list specifies the actual extent of stored values. Number of its elements must equal ndarray's rank, with each element's value lesser or equal to ndarray's corresponding dimension size.
+
+**`size`**: Only allowed for dimension coordinates. The actual size (number) of stored values.
+
+**`chunk`**: Some file formats support storing ndarray values in a number of _chunks_ (byte streams). They are also called _tiles_. Chunk size is defined with a list of the same size as ndarray's rank where each value declares the number of ndarray elements along the corresponding dimension.
+
+**`filter`**: Describes data processing pipeline as a list where each element is one process. The processes apply sequentially to outbound (write) data and in reverse (backward) order to inbound (read) data.
+
+**`endian`**: Byte layout order for numbers. Two valid values: `little`, `big`.
+
+**`charset`**: String character set.
+
+**`fillvalue`**: The default value of ndarray or dimension coordinate elements in absence of actual data.
