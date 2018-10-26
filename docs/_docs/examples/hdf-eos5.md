@@ -1,5 +1,5 @@
 ---
-title: HDF-EOS5 Example
+title: HDF-EOS5 File
 permalink: /docs/examples/hdf-eos5/
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: CF Examples
+title: CF Files
 permalink: /docs/examples/cf/
 ---
 

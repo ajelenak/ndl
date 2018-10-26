@@ -1,5 +1,5 @@
 ---
-title: JPSS Example
+title: JPSS File
 permalink: /docs/examples/jpss/
 ---
 
