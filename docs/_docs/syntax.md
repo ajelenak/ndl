@@ -178,7 +178,7 @@ type:
     base: uint8
 ```
 
-The above declares a variable-length sequence of `unit8` values.
+The above declares a variable-length sequence of `uint8` values.
 
 ### Array
 
