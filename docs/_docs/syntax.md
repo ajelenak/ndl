@@ -259,7 +259,7 @@ The above example includes five attributes named `a`, `b`, `same_as_a`, `same_as
 
 ## DimCoord
 
-The DimCoord entity describes _dimension coordinates_, one-dimensional ndarrays whose elements are mapped to the indices of another ndarray's dimension. A dimension coordinate is defined by: name (Unicode string), size (a positive integer or `null`), datatype, and, optionally, its values (optional).
+The DimCoord entity describes _dimension coordinates_, one-dimensional ndarrays whose elements are mapped to the indices of another ndarray's dimension. A dimension coordinate is defined by: name (Unicode string), size (a positive integer or `null`), datatype, and, optionally, its values.
 
 ```yaml
 dimcoords:
