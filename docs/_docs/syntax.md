@@ -4,8 +4,8 @@ permalink: /docs/syntax/
 ---
 <!-- MDTOC maxdepth:6 firsth1:0 numbering:1 flatten:0 bullets:0 updateOnSave:0 -->
 
-1. [Status of this Document](#status-of-this-document)   
-2. [Scope](#scope)   
+1. [Scope](#scope)   
+2. [Status of this Document](#status-of-this-document)   
 3. [Syntax](#syntax)   
 4. [File](#file)   
 5. [Datatype](#datatype)   
@@ -28,25 +28,25 @@ permalink: /docs/syntax/
 
 <!-- /MDTOC -->
 
+## Scope
+
+This document specifies the syntax of the Ndarray Data Language. The language provides a text format for describing the content of files with multidimensional array (ndarray, data cube) data in many storage formats. However, the language is not intended to be another storage format and is best suited for creation and exchange of file content information.
+
 ## Status of this Document
 
-The current content is a work in progress. For those who prefer semantic version identifiers, let's say it is at version __0.6__.
+The current content is a work in progress. For those who prefer semantic version identifiers, let's say it is at version __0.6.1__.
 
 Each new version of the document supersedes the previous one.
 
-## Scope
-
-This document specifies the syntax of the Ndarray Data Language. The language provides a text format for describing the content of multidimensional array data (ndarray, data cube) files in many storage formats. However, the language is not intended to serve as another storage format so is best suited for creation and exchange of file content information.
-
 ## Syntax
 
-Ndarray Data Language is based on the data serialization language [YAML](http://yaml.org) (_YAML Ain’t Markup Language_). YAML was chosen because it is mature, readable, easy to generate by humans yet portable between programming languages, with sufficient flexibility to represent ndarray file content information. The Ndarray Data Language's syntax is not tied to a specific YAML version as it is not anticipated any future YAML version will introduce backward incompatible features.
+Ndarray Data Language is based on the data serialization language [YAML](http://yaml.org) (_YAML Ain’t Markup Language_). YAML was chosen because it is mature, readable and easy to generate by humans, supported in many  programming languages, and with sufficient flexibility to represent ndarray file content information. The Ndarray Data Language's syntax is not tied to a specific YAML version as it is not anticipated any future YAML version will introduce backward incompatible features.
 
-Ndarray Data Language describes file content using these seven entities: File, Group, Ndarray, DimCoord, Attribute, Datatype and Shape. Their explanation and YAML syntax are detailed below.
+Ndarray Data Language describes file content using seven entities: File, Group, Ndarray, DimCoord, Attribute, Datatype and Shape. Their explanation and YAML syntax are detailed below.
 
 ## File
 
-The File entity represents content information of one ndarray file and is encoded as one YAML document. If saving this document to a file, its name should be the same as the ndarray file with a new file extension: `yaml` (preferred) or `yml`. For example, if a file's name is `example.fmt`, the YAML document's file should be `example.yaml` or `example.yml`.
+The File entity represents content information of one ndarray file and is encoded as one YAML document. If saving this document to a file, its name should be the same as the ndarray file with a new file extension: `yaml` or `yml`. For example, if a file's name is `example.fmt`, the YAML document's file should be `example.yaml` or `example.yml`.
 
 ## Datatype
 
