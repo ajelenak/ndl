@@ -1,6 +1,7 @@
 ---
 title: CF Files
 permalink: /docs/examples/cf/
+sectionid: examples
 ---
 
 In [geosciences](https://en.wikipedia.org/wiki/Earth_science), specifically, the climate and weather modeling communities, ndarray data is often stored in files according to the [Climate and Forecast metadata convention](http://cfconventions.org) (CF). This page showcases examples of how various types of CF-encoded geoscience data are described using the Ndarray Data Language. The content in these examples should not be construed as complete or representing best practices.

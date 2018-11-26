@@ -1,0 +1,15 @@
+---
+title: Available Documentation
+layout: docs
+sectionid: docs
+---
+
+<ul>
+{% for page in site.docs %}
+    {% if page.sectionid == "docs" %}
+    <li>
+        <strong><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></strong>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>

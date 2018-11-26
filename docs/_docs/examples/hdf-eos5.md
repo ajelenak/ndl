@@ -1,6 +1,7 @@
 ---
 title: HDF-EOS5 File
 permalink: /docs/examples/hdf-eos5/
+sectionid: examples
 ---
 
 [HDF-EOS5](https://earthdata.nasa.gov/user-resources/standards-and-references/hdf-eos5) is the standard for storing NASA Earth Observing System data. The example below is for the file `GSSTF_NCEP.3.2008.12.31.he5` ([download](https://measures.gesdisc.eosdis.nasa.gov/data/GSSTF/GSSTF_NCEP.3/2008/GSSTF_NCEP.3.2008.12.31.he5)) from the [Goddard Satellite-based Surface Turbulent Fluxes Version 3](https://disc.gsfc.nasa.gov/datasets/GSSTF_NCEP_V3/summary?keywords=Atmospheric%20Composition) dataset.

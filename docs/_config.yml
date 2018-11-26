@@ -48,6 +48,15 @@ defaults:
       seo:
         type: "WebPage"
 
+  - scope:
+      path: _docs/examples/
+      type: examples
+    values:
+      layout: docs
+      sectionid: examples
+      seo:
+        type: "WebPage"
+
 collections:
   docs:
     permalink: /:collection/:path/

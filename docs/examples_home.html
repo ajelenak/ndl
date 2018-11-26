@@ -1,0 +1,16 @@
+---
+title: Available Examples
+layout: docs
+sectionid: examples
+---
+
+<ul>
+{% for page in site.docs %}
+    {% if page.sectionid == "examples" %}
+    <li>
+        <strong><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></strong>
+        {{ page.excerpt }}
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>

@@ -1,6 +1,7 @@
 ---
 title: JPSS File
 permalink: /docs/examples/jpss/
+sectionid: examples
 ---
 
 Joint Polar Satellite System ([JPSS](https://www.jpss.noaa.gov)) is the current generation of operational polar-orbiting U.S. satellites for weather and environmental monitoring. The data is disseminated in an [HDF5](https://portal.hdfgroup.org/display/HDF5/HDF5)-based file [format](https://jointmission.gsfc.nasa.gov/documents.html). The example here is for an SVM01 product file from the [VIIRS](https://www.jpss.noaa.gov/viirs.html) instrument aboard the [SNPP](https://www.wmo-sat.info/oscar/satellites/view/342) satellite.
