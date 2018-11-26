@@ -30,7 +30,7 @@ exclude:
   - README.md
   - vendor
   - docker-compose.yml
-timezone: America/New York
+timezone: America/New_York
 defaults:
   - scope:
       path: _posts
