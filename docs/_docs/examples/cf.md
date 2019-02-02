@@ -1,5 +1,5 @@
 ---
-title: CF Files
+title: Climate and Forecast Metadata Convention Files
 permalink: /docs/examples/cf/
 sectionid: examples
 ---
@@ -19,7 +19,6 @@ dimcoords:
   lat:
     type: float32
     size: 180
-
     attributes:
       long_name: grid cell latitude
       standard_name: latitude
@@ -37,7 +36,6 @@ dimcoords:
   lon:
     type: float32
     size: 360
-
     attributes:
       long_name: grid cell longitude
       standard_name: longitude
@@ -55,7 +53,6 @@ dimcoords:
   z:
     type: float32
     size: 25
-
     attributes:
       long_name: grid cell altitude
       standard_name: altitude
@@ -74,7 +71,6 @@ dimcoords:
   t:
     type: float64
     size: 72
-
     attributes:
       long_name: grid cell time
       standard_name: time
@@ -95,7 +91,6 @@ ndarrays:
   geoparam:
     type: float32
     shape: [t, z, lat, lon]
-
     attributes:
       long_name: air temperature
       standard_name: air_temperature

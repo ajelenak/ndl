@@ -91,7 +91,6 @@ HDF-EOS5 files can have many groups but in Ndarray Data Language only the groups
     Psea_level:
       type: float32
       shape: [720, 1440]
-
       attributes:
         _FillValue:
           type: float32
@@ -103,7 +102,6 @@ HDF-EOS5 files can have many groups but in Ndarray Data Language only the groups
     Qsat:
       type: float32
       shape: [720, 1440]
-
       attributes:
         _FillValue:
           type: float32
@@ -115,7 +113,6 @@ HDF-EOS5 files can have many groups but in Ndarray Data Language only the groups
     SST:
       type: float32
       shape: [720, 1440]
-
       attributes:
         _FillValue:
           type: float32
@@ -127,7 +124,6 @@ HDF-EOS5 files can have many groups but in Ndarray Data Language only the groups
     Tair_2m:
       type: float32
       shape: [720, 1440]
-
       attributes:
         _FillValue:
           type: float32
